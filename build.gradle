@@ -14,7 +14,7 @@ java {
 }
 
 application {
-    mainClass = 'game.ui.GameApplication'
+    mainClass = 'Main'
 }
 
 javafx {

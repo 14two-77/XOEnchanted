@@ -1,0 +1,36 @@
+package game.ui.view;
+
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+
+public class ActionBarView {
+    private final HBox node;
+
+    public ActionBarView(
+            Runnable onSeal,
+            Runnable onShift,
+            Runnable onDisrupt,
+            Runnable onDoublePlace,
+            Runnable onReset
+    ) {
+        Button sealButton = new Button("Seal (TODO)");
+        Button shiftButton = new Button("Shift (TODO)");
+        Button disruptButton = new Button("Disrupt (TODO)");
+        Button doublePlaceButton = new Button("Double Place (TODO)");
+        Button resetButton = new Button("Reset");
+
+        sealButton.setOnAction(event -> onSeal.run());
+        shiftButton.setOnAction(event -> onShift.run());
+        disruptButton.setOnAction(event -> onDisrupt.run());
+        doublePlaceButton.setOnAction(event -> onDoublePlace.run());
+        resetButton.setOnAction(event -> onReset.run());
+
+        this.node = new HBox(8, sealButton, shiftButton, disruptButton, doublePlaceButton, resetButton);
+        this.node.setPadding(new Insets(16, 0, 0, 0));
+    }
+
+    public HBox node() {
+        return node;
+    }
+}
