@@ -10,7 +10,12 @@ import game.model.Position;
  * Cost: 3 energy
  */
 public record DisruptAction(PlayerId player, Position target) implements Action {
-    
+
+    @Override
+    public PlayerId getPlayer() {
+        return player;
+    }
+
     @Override
     public int getEnergyCost() {
         return 3;

@@ -1,17 +1,17 @@
 package game.ui;
 
-import game.engine.GameEngine;
+import game.engine.GameEngineOld;
 import game.model.GameState;
 import game.model.Position;
 
 import java.util.Objects;
 
 public class GameUiController {
-    private final GameEngine engine;
+    private final GameEngineOld engine;
     private SkillMode mode;
 
     public GameUiController() {
-        this.engine = new GameEngine();
+        this.engine = new GameEngineOld();
         this.mode = SkillMode.PLACE;
     }
 

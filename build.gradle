@@ -19,7 +19,7 @@ application {
 
 javafx {
     version = '21.0.6'
-    modules = ['javafx.controls']
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.media', 'javafx.web', 'javafx.swing']
 }
 
 repositories {
@@ -27,11 +27,38 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.openjfx:javafx-controls:21.0.6'
+    implementation 'org.openjfx:javafx-fxml:21.0.6'
+    implementation 'org.openjfx:javafx-web:21.0.6'
+    implementation 'org.openjfx:javafx-graphics:21.0.6'
+    implementation 'org.openjfx:javafx-media:21.0.6'
+    implementation 'org.openjfx:javafx-swing:21.0.6'
+
+    // TestFX dependencies
+    testImplementation 'org.testfx:testfx-core:4.0.17'
+    testImplementation 'org.testfx:testfx-junit5:4.0.17'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
+run {
+    standardInput = System.in
+}
+
 test {
     useJUnitPlatform()
+
+    // TestFX configuration for JavaFX
+    systemProperty 'testfx.robot', 'glass'
+    systemProperty 'testfx.setup.timeout', '60000'
+    systemProperty 'testfx.launch.timeout', '60000'
+
+    // Required JVM arguments for JavaFX
+    jvmArgs '--add-opens', 'javafx.graphics/com.sun.javafx.application=ALL-UNNAMED'
+    jvmArgs '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED'
+    jvmArgs '--add-exports', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED'
+    jvmArgs '--add-exports', 'javafx.base/com.sun.javafx.runtime=ALL-UNNAMED'
 }

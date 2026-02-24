@@ -8,7 +8,12 @@ import game.model.Position;
  * Cost: 2 energy
  */
 public record ShiftAction(PlayerId player, Position from, Position to) implements Action {
-    
+
+    @Override
+    public PlayerId getPlayer() {
+        return player;
+    }
+
     @Override
     public int getEnergyCost() {
         return 2;

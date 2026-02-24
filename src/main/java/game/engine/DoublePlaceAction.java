@@ -10,7 +10,12 @@ import game.model.Position;
  * Cost: 4 energy
  */
 public record DoublePlaceAction(PlayerId player, Position pos1, Position pos2) implements Action {
-    
+
+    @Override
+    public PlayerId getPlayer() {
+        return player;
+    }
+
     @Override
     public int getEnergyCost() {
         return 4;

@@ -8,7 +8,12 @@ import game.model.Position;
  * Cost: 2 energy
  */
 public record SealAction(PlayerId player, Position target) implements Action {
-    
+
+    @Override
+    public PlayerId getPlayer() {
+        return player;
+    }
+
     @Override
     public int getEnergyCost() {
         return 2;

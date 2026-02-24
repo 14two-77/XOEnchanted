@@ -14,7 +14,7 @@ class GameEngineTest {
 
     @Test
     void placementTurnGainsEnergyAndSwitchesPlayer() {
-        GameEngine engine = new GameEngine();
+        GameEngineOld engine = new GameEngineOld();
 
         engine.playPlacementTurn(new Position(0, 0));
 
@@ -27,7 +27,7 @@ class GameEngineTest {
 
     @Test
     void scoringAwardsOnePointClearsSelectedLineAndGivesPriority() {
-        GameEngine engine = new GameEngine();
+        GameEngineOld engine = new GameEngineOld();
 
         engine.playPlacementTurn(new Position(0, 0));
         engine.playPlacementTurn(new Position(3, 3));
@@ -50,7 +50,7 @@ class GameEngineTest {
 
     @Test
     void noWinnerAfterSingleScoringTurn() {
-        GameEngine engine = new GameEngine();
+        GameEngineOld engine = new GameEngineOld();
 
         engine.playPlacementTurn(new Position(0, 0));
         engine.playPlacementTurn(new Position(3, 3));

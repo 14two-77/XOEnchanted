@@ -24,6 +24,6 @@ public abstract class ActionValidator {
      * @return true if player has enough energy
      */
     protected boolean hasEnoughEnergy(PlayerState player, Action action) {
-        return player.energy() >= action.getEnergyCost();
+        return player.getEnergy() >= action.getEnergyCost();
     }
 }
